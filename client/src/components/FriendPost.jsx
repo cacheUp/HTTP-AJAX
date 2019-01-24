@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { FriendPostContext } from "../provider/FriendPostProvider";
 
 function FriendPost() {
-  const friends = useContext(FriendPostContext);
+  const { friendData, setFriendData } = useContext(FriendPostContext);
 
   return (
     <div>
-      {friends.map(friend => (
+      {friendData.map(friend => (
         <div className="friend-item">
           <div className="friend-div">
             <h1>{friend.name}</h1>

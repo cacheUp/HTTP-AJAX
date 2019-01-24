@@ -4,7 +4,10 @@ export const FriendPostContext = createContext();
 
 function FriendPostProvider(props) {
   const [friendData, setFriendData] = useState([]);
-
+  const friendContext = {
+    friendData,
+    setFriendData
+  };
   useEffect(() => {
     axios
       .get(`http://localhost:5000/friends`)
@@ -22,7 +25,7 @@ function FriendPostProvider(props) {
   const { children } = props;
 
   return (
-    <FriendPostContext.Provider value={friendData}>
+    <FriendPostContext.Provider value={friendContext}>
       {children}
     </FriendPostContext.Provider>
   );
